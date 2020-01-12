@@ -15,6 +15,7 @@
  */
 package sample.mybatis.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -24,7 +25,7 @@ import sample.mybatis.domain.City;
  * @author Eddú Meléndez
  */
 @Mapper
-public interface CityMapper {
+public interface CityMapper extends BaseMapper<City> {
 
   @Select("select id, name, state, country from city where state = #{state}")
   City findByState(@Param("state") String state);
